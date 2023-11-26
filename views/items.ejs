@@ -1,0 +1,38 @@
+<%- include('includes/head.ejs', {title: 'Manage books' }) %>
+<script src="/scripts/file-preview.js" defer></script>
+<link rel="stylesheet" href="/styles/forms.css">
+
+</head>
+<body>
+    <%- include('includes/nav.ejs')  %>
+    <main>
+        <h1 class="edit-title">Add a picture, title, and description of the new item</h1>
+        <div class="edit-form-control">
+            <form action="/items" method="POST" enctype="multipart/form-data">
+                <img id='item-preview' src=" " alt="The item">
+                <input type="file" id="image" name="image" placeholder="Choose item image" required accept="image/jpg, image/png">
+                <input type="text" id="title" name="title" placeholder="Title of item" required>
+                <textarea placeholder="Write description here..." id="description" name="description" rows="30" required></textarea>
+                <textarea  placeholder="Add resource links here, one per line..." id="resources" name="resources" rows="5" cols="65"></textarea>
+                <textarea  placeholder="Add resource links here, one per line..." id="lockedResources" name="lockedResources" rows="5" cols="65"></textarea>
+                <select id="genre"  name = "genre" >
+                    <option>Reading</option>
+                    <option>Listening</option>
+                    <option>Speaking</option>
+                    <option>Writing</option>
+                    <option>Culture</option>
+                    <option>Other</option>
+                </select>
+                <button class="form-btn">Save</button>
+            </form>
+        </div>
+        <h1 class="edit-title">Edit or Delete current items below</h1>
+        <ol id="edit-items-list">
+            <% for(const item of items) { %>
+                <li class="listitem">
+                    <%- include('includes/edit-item.ejs', {item:item});%>
+                </li> 
+             <% };  %>  
+        </ol>
+
+    </main>

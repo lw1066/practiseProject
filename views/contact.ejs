@@ -1,0 +1,30 @@
+<%- include('includes/head.ejs', { title: 'contact us' }) %>
+  <link rel="stylesheet" href="/styles/forms.css">
+  <link rel="stylesheet" href="/styles/auth.css">
+  </head>
+
+<body>
+  <%- include('includes/nav.ejs')  %>
+  <main>
+    <div class="welcome">
+      <h2>Want to ask us a question, make a suggestion or just say hello? Please fill in the short form below and we'll get back to you as soon as possible</h2>
+    </div>
+    <form action="/contact" method="POST" class="form-control" id="contact-form">
+      <div>
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form" id="name" name="name" placeholder="Bob Smith" required>
+        
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form" id="email" name="email" placeholder="name@example.com" required>
+        
+        <label for="message" class="form-label">Please write your message or question below</label>
+        <textarea class="form message" name="message" rows="6" required></textarea>
+      </div>
+      <div id="form-btns">
+        <input class="btn btn-secondary btn" type="submit" value="Send">
+        <input class="btn btn-secondary btn" type="reset" value="Clear">
+      </div>
+    </form>
+    <p class="privacy">PLEASE NOTE: We will <strong>never</strong>  share your contact details with any other organisation</p>
+  </main>
+</body>

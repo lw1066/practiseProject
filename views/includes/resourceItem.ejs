@@ -1,0 +1,29 @@
+
+
+<div class="item">
+  <img class="item-img" src="<%= item.imagePath %>" alt="<%= item.title %>">
+  <div class="middle">
+    <div class="details">
+      <h2 class="item-title"><%- item.title %></h2>
+      <%if (item.resources) {for (const key in item.resources){%>
+          <a role="button" class="btn btn-outline-light btn-sm resource" target="_blank" href="<%=item.resources[key]%>">
+            <%=key%>
+          </a>
+        <%}
+      }%>
+
+      <% if (locals.isAdmin || locals.isAuth) { %>
+        <%if (item.lockedResources) {for (const key in item.lockedResources){%>
+            <a role="button" class="btn btn-outline-light btn-sm resource" target="_blank" href="<%=item.lockedResources[key]%>">
+              <%=key%>
+            </a>
+          <%}
+        }
+      }%>
+    </div>
+  </div>
+</div>
+
+
+
+

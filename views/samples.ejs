@@ -1,0 +1,38 @@
+<%- include('includes/head.ejs', { title: 'Get samples' }) %>
+  <link rel="stylesheet" href="/styles/forms.css">
+  <link rel="stylesheet" href="/styles/auth.css">
+  </head>
+
+<body>
+  <%- include('includes/nav.ejs')  %>
+  <main>
+    <div class="welcome">
+      <h2>Thank you for your interest in Perceptia Press books.
+      </br></br>We are always happy to send out inspection copies.
+      Our distributor (englishbooks.jp) will dispatch requests within 3 working days. </br></br> Please complete the form below to order your copies.</h2>
+    </div>
+    <form action="/samples" class="form-control" method="POST">
+      <div>
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form" id="name" name="name" placeholder="Bob Smith" required>
+        
+        <label for="company" class="form-label">Your educational organisation/company</label>
+        <input type="text" class="form" id="company" name="org" placeholder="A university somewhere" required>
+        
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form" id="email" name="email" placeholder="name@example.com" required>
+        
+        <label for="address" class="form-label">Full shipping address</label>
+        <textarea class="form message" rows="6" name="address" placeholder="Please be as accurate and complete as possible to avoid delivery problems" required></textarea>
+        
+        <label for="message" class="form-label">Any other infomation or requests</label>
+        <textarea class="form message" rows="6" name="message" required></textarea>
+      </div>
+      <div id="form-btns">
+        <input class="btn btn-secondary btn" type="submit" value="Send">
+        <input class="btn btn-secondary btn" type="reset" value="Clear">
+      </div>
+    </form>
+    <p class="privacy">PLEASE NOTE: We will <strong>never</strong>  share your contact details with any other organisation</p>
+  </main>
+</body>

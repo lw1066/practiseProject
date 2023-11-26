@@ -1,0 +1,23 @@
+<%- include('includes/head.ejs', {title: 'edit-news' }) %>
+<script src="/scripts/file-preview-edit.js" defer></script>
+<link rel="stylesheet" href="/styles/forms.css">
+</head>
+<body>
+    <%- include('includes/nav.ejs')  %>
+    <main>
+        <h1>Edit the news item below</h1>
+        <form action="/edit-news/<%= newsItem._id %>" method="POST" enctype="multipart/form-data">
+            <div class="form-control">
+                <%if (newsItem.imagePath) {%>
+                    <img id='item-preview' src="/<%= newsItem.imagePath %>" alt="The item">
+                <%}%>
+                <input type="file" id="image" name="image" accept="image/jpg, image/png">
+                <input type="text" id="title" name="title" value="<%= newsItem.title %>" required>
+                <textarea  id="news" name="news" rows="5" cols="65" required><%= newsItem.news %></textarea>
+                <button class="btn">Save</button>
+            </div>
+        </form>
+       
+       
+
+    </main>

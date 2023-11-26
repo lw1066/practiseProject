@@ -1,0 +1,50 @@
+<%- include('includes/head.ejs', {title: 'Resources' }) %>
+<script src="/scripts/display-items-by-genre.js" defer></script>
+<script src="/scripts/toggle-genre-button-display.js" defer></script>
+</head>
+<body>
+  <%- include('includes/nav.ejs')  %>
+  <main>
+    <h2 class="bodytext">
+      Below are the available resources for each title. If you are looking for teaching resources, please sign in to access them. If you don't have a sign-in, please contact us for one.
+    </h2>
+
+    
+    <div class="btn-group btn-group-lg" id="genre-choice" role="group" aria-label="button group">
+      <input type="radio" class="btn-check" name="genre" id="all" value="All" autocomplete="off" checked>
+      <label class="btn btn-outline-secondary" for="all">All</label>
+
+      <input type="radio" class="btn-check" name="genre" id="reading" value="Reading" autocomplete="off">
+      <label class="btn btn-outline-secondary" for="reading">Reading</label>
+
+      <input type="radio" class="btn-check" name="genre" id="speaking" value="Speaking" autocomplete="off">
+      <label class="btn btn-outline-secondary" for="speaking">Speaking</label>
+      
+      <input type="radio" class="btn-check" name="genre" id="writing" value="Writing" autocomplete="off">
+      <label class="btn btn-outline-secondary" for="writing">Writing</label>
+      
+      <input type="radio" class="btn-check" name="genre" id="listening" value="Listening" autocomplete="off">
+      <label class="btn btn-outline-secondary" for="listening">Listening</label>
+      
+      <input type="radio" class="btn-check" name="genre" id="culture" value="Culture" autocomplete="off">
+      <label class="btn btn-outline-secondary" for="culture">Culture</label>
+      
+      <input type="radio" class="btn-check" name="genre" id="other" value="Other" autocomplete="off">
+      <label class="btn btn-outline-secondary" for="other">Other</label>
+    </div>
+    
+    </div>
+          
+    <ol id="items-list">
+      <% for(const item of items) {%>
+        
+        <li class="listitem <%= item.genre%>">
+          <%- include('includes/resourceitem.ejs', {item:item});%>
+        </li>
+        
+      <% } %>    
+    </ol>
+
+  </main>
+  <%- include('includes/footer.ejs')  %>
+</body>

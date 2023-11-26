@@ -1,0 +1,51 @@
+<%- include('includes/head.ejs', {title: 'Order' }) %>
+<link rel="stylesheet" href="/styles/forms.css">
+</head>
+
+<body>
+    <%- include('includes/nav.ejs') %>
+    <main>
+        <h2 class="welcome">If you'd like to purchase any of our materials, please take a look at the options below</h2>
+        <div class="order-card">
+            <h2>Japan & East Asia</h2></br>
+            <p class="order-details">Englishbooks.jp is our exclusive distributor in Japan. </br>To place your order, please visit <a href="https://www.englishbooks.jp/catalog/index.php/en/perceptia-press-m-81"> their website</a>
+            </br>
+            Alternatively their contact details are:</br>
+            Telephone: +81 (0) 985-41-6611</br>
+            Business Hours: Monday to Friday 10:00 to 16:00</br>
+            (Closed Saturdays, Sundays, and Japanese National Holidays)</br></br>
+            
+            弊社スタッフが責任を持ってできる限りのお手伝いをさせていただきます。</br>
+            電話番号: 0985-41-6611</br>
+            お問合わせ受付時間：月-金10:00~16:00(土日祝日、会社規定休を除く)</p>
+        </div>
+        
+        <div class="order-card">
+            <h2>UK, Europe, and Rest of the World</h2> </br>
+            <p class="order-details"> <a href="https://www.bebc.co.uk/escape-the-classroom">Escape the Classroom </a>and <a href="https://www.bebc.co.uk/helping-matters">Helping Matters </a> are available via BEBC</br>
+            Telephone: +44 (0) 1202-715555</br>
+            email: elt@bebc.co.uk</p> 
+        </div>
+        
+        <h2 class="welcome">If you'd like to discuss purchasing directly from us or have other order questions please contact us below</h2>
+    
+        <form action="/contact" class="form-control" method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form" id="name" name="name" placeholder="Bob Smith" required>
+                
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form" id="email" name="email" placeholder="name@example.com" required>
+                
+                
+                <textarea class="form" id="message" rows="6" required name="message" placeholder="Please provide details of the products you're interested in..."></textarea>
+            </div>
+            <div id="form-btns">
+                <input class="btn btn-secondary btn" type="submit" value="Send">
+                <input class="btn btn-secondary btn" type="reset" value="Clear">
+            </div>
+        </form>
+        <p class="privacy">PLEASE NOTE: We will <strong>never</strong>  share your contact details with any other organisation</p>
+
+    </main>
+</body>

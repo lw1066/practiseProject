@@ -1,0 +1,51 @@
+<%- include('includes/head.ejs', {title: 'Manage news' }) %>
+<script src="/scripts/file-preview.js" defer></script>
+<link rel="stylesheet" href="/styles/forms.css">
+
+</head>
+<body>
+  <%- include('includes/nav.ejs')  %>
+  <main>
+    <h1 class="edit-title">Add a news item to the accordian</h1>
+    <div class="form-control">
+      <form action="/news" method="POST" enctype="multipart/form-data">
+          <img id='item-preview' src=" " alt="The item">
+          <input type="file" id="image" name="image" placeholder="Choose item image" accept="image/jpg, image/png">
+          <input type="text" id="title" name="title" placeholder="Title of item" required>
+          <textarea placeholder="Write information here..." id="news" name="news" rows="5" required></textarea>
+          <button class="btn">Save</button>
+      </form>
+    </div>
+
+    <h1 class="edit-title">Edit or Delete current news items below</h1>
+    
+    <div class="accordion" id="accordionExample">
+      <% for (newsItem of news) {%>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#<%= newsItem._id%>" aria-expanded="true" aria-controls="collapseOne">
+              <% if (newsItem.imagePath) {%>
+                <img class="newsTitleImage" src="<%=newsItem.imagePath%>" alt="<%= newsItem.title%>">
+                <%}%>
+                <%= newsItem.title%>
+            </button>
+          </h2>
+          <div id="<%= newsItem._id%>" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <% if (newsItem.imagePath) {%>
+                <img class="newsItemImage" src="<%=newsItem.imagePath%>" alt="<%= newsItem.title%>">
+                <%}%>
+              <%= newsItem.news%>
+            </div>
+            <div class="edit-btns-news">
+              <form action="/news/<%= newsItem._id %>/delete" method="POST">
+                  <button class="btn delete" name="deleteItem">Delete</button>
+              </form>
+              <a href="/news/<%= newsItem._id%>/edit">Edit Item</a>
+            </div>
+          </div>
+        </div>
+      <%}%>
+    </div>
+  </main>
+</body>

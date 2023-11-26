@@ -1,0 +1,53 @@
+</head>
+
+<nav class="navbar sticky-top navbar-expand-xl bg-body-white">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><img class="logo" src="/images\perceptia_logo.jpg" alt="Perceptia door"><img  class="logo" src="/images/PerceptiaTitle.jpg" alt="Perceptia Press"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto  mx-auto">
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/"><h2>Home</h2></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <h2>More...</h2>
+                </a>
+                <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/buy">Order books</a></li>
+                <li><a class="dropdown-item" href="/samples">Sample copies</a></li>
+                <li><a class="dropdown-item" href="/resources">Book resources</a></li>
+                <li><a class="dropdown-item" href="/contact">Contact us</a></li>
+                </ul>
+            </li>
+            <% if (locals.isAdmin) { %>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <h2>Manage</h2>
+                    </a>
+                    <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/items">Books</a></li>
+                    <li><a class="dropdown-item" href="/news">News</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/signup">Sign up</a></li>
+                    </ul>
+                </li>
+            <% } %>
+            <% if (locals.isAuth) { %>
+                <li class="nav-item">
+                    <form action="/logout" method="POST">
+                    <button class="btn btn-outline-dark">Logout</button>
+                    </form>
+                </li>
+            <% } %>
+            <% if (!locals.isAuth) { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login"><h2>Login</h2></a>
+                </li>
+            <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,31 @@
+<%- include('includes/head.ejs', {title: 'edit-item' }) %>
+<script src="/scripts/file-preview-edit.js" defer></script>
+<link rel="stylesheet" href="/styles/forms.css">
+</head>
+<body>
+    <%- include('includes/nav.ejs')  %>
+    <main>
+        <h1>Edit the item below</h1>
+        <form id="edit-form" action="/edit-item/<%= item._id %>" method="POST" enctype="multipart/form-data">
+            <div class="edit-form-control">
+                <img id='item-preview' src="/<%= item.imagePath %>" alt="The item">
+                <input type="file" id="image" name="image" accept="image/jpg, image/png">
+                <input type="text" id="title" name="title" value="<%= item.title %>" required>
+                <textarea  id="description" name="description" rows="30" cols="65" required><%= item.description %></textarea>
+                <textarea  placeholder="Add resource links here - one link name or link per line." id="resources" name="resources" rows="5" cols="65"><% if(item.resources) {%><%for (const key in item.resources){%><%=key%>&#013<%=item.resources[key]%>&#013<%}}%></textarea>
+                <textarea  placeholder="Add resource links here - one link name or link per line." id="lockedResources" name="lockedResources" rows="5" cols="65"><% if(item.lockedResources) {%><%for (const key in item.lockedResources){%><%=key%>&#013<%=item.lockedResources[key]%>&#013<%}}%></textarea>
+                <select id="genre"  name = "genre" >
+                    <option>Reading</option>
+                    <option>Listening</option>
+                    <option>Speaking</option>
+                    <option>Writing</option>
+                    <option>Culture</option>
+                    <option>Other</option>
+                </select>
+                <button class="btn form-btn">Save</button>
+            </div>
+        </form>
+       
+       
+
+    </main>

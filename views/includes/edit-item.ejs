@@ -1,0 +1,25 @@
+<div class="edit-item">
+    <img src="<%= item.imagePath %>" alt="<%= item.title %>">
+    <h2 class="edit-title"><%- item.title %></h2>
+    <p class="text-left"><%- item.description %></p>
+    <% if(item.resources) {%>
+        <p>Resources: </p>
+        <%{for (const key in item.resources){%>
+            <p class="resources"><%=key%>  :  <%=item.resources[key]%></p>
+            <%}%>
+        <%}%>
+    <%}%>
+        <% if(item.lockedResources) {%>
+            <p>Locked Resources: </p> 
+            <%{for (const key in item.lockedResources){%>
+                <p class="resources"><%=key%>  :  <%=item.lockedResources[key]%></p>
+                <%}%>
+            <%}%>
+        <%}%>
+    <div class="edit-btns">
+        <form action="/items/<%= item._id %>/delete" method="POST">
+            <button class="form-btn delete" name="deleteItem">Delete</button>
+        </form>
+        <a href="/items/<%= item._id%>/edit">Edit Item</a>
+    </div>
+</div>

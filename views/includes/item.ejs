@@ -1,0 +1,31 @@
+
+
+<div class="item">
+  <img class="item-img" src="<%= item.imagePath %>" alt="<%= item.title %>">
+    <div class="middle">
+      <div class="details">
+        <h2 class="item-title"><%- item.title %></h2>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#item<%=item._id%>">
+          More
+        </button>
+      </div>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="item<%=item._id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-1 text-start" id="title<%=item._id%>"><%- item.title %></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <a href="/buy"><button type="button" class="btn btn-outline-success ">Order</button></a>
+        <%- item.description %>
+      </div>
+    </div>
+</div>
