@@ -17,7 +17,7 @@ const app = express();
 
 
 const sessionStore = new MongoDBStore({
-    uri: 'mongodb+srv://user1:-pl,mko0@rest-test.sl9i8zv.mongodb.net/?retryWrites=true&w=majority',
+    uri: 'mongodb+srv://user1:poiuhjkl@rest-test.sl9i8zv.mongodb.net/?retryWrites=true&w=majority',
     databaseName: 'project-practise',
     collection: 'sessions'
 });
